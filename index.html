@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            let email = document.forms["myForm"]["email"].value;
+            let password = document.forms["myForm"]["password"].value;
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            let passwordPattern = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/;
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long and contain both letters and numbers.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>dotwork</h2>
+        <h1>Log in to your Account</h1>
+        <p>Welcome Back! Select method to Log In </p>
+       <button class="button">Google</button>
+        <button class="button">Facebook</button>
+        <p style="text-align: center;">Forget your password</p>
+        <form name="myForm" onsubmit="return validateForm()">
+             <input type="text" name="email" placeholder="email"><br>
+             <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit" value="Submit" class="btn">
+        </form>
+       <p style="text-align: center;">Don't have an account? <a href="">Create an account</a></p>
+     
+   </div>
+</body>
+
+</html>
